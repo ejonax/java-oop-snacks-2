@@ -52,96 +52,54 @@ public class ConvertitoreValute {
     
     switch (da) {
         case "EUR":
-            switch (a) {
-                    case "EUR":
-                        tassoCambio=1;
-                        break;
-                    case "USD":
-                        tassoCambio=1.04;
-                        break;
-                    case "GBP":
-                        tassoCambio=0.83;
-                        break;
-                    case "JPY":
-                        tassoCambio=160.41;
-                        break;
-                    default:
-                        tassoCambio=0;
-                        break;
-                    }
+            tassoCambio = switch (a) {
+            case "EUR" -> 1;
+            case "USD" -> 1.04;
+            case "GBP" -> 0.83;
+            case "JPY" -> 160.41;
+            default -> 0;
+        };
                 break;
+
         case "USD":
-                switch (a) {
-                    case "USD":
-                        tassoCambio=1;
-                        break;
-                    case "EUR":
-                        tassoCambio=0.96;
-                        break;
-                    case "GBP":
-                        tassoCambio=0.80;
-                        break;
-                    case "JPY":
-                        tassoCambio=154.35;
-                        break;
-                    default:
-                        tassoCambio=0;
-                    }
+            tassoCambio = switch (a) {
+            case "USD" -> 1;
+            case "EUR" -> 0.96;
+            case "GBP" -> 0.80;
+            case "JPY" -> 154.35;
+            default -> 0;
+        };
                 break;
+
         case "GBP":
-                switch (a) {
-                    case "GBP":
-                        tassoCambio=1;
-                        break;
-                    case "EUR":
-                        tassoCambio=1.2;
-                        break;
-                    case "USD":
-                        tassoCambio=1.25;
-                        break;
-                    case "JPY":
-                        tassoCambio=192.15;
-                        break;
-                    default:
-                        tassoCambio=0;
-                        break;
-                        }
+            tassoCambio = switch (a) {
+            case "GBP" -> 1;
+            case "EUR" -> 1.2;
+            case "USD" -> 1.25;
+            case "JPY" -> 192.15;
+            default -> 0;
+        };
                     break;
+
         case "JPY":
-                    switch (a) {
-                        case "JPY":
-                            tassoCambio=1;
-                            break;
-                        case "EUR":
-                            tassoCambio=0.0062;
-                            break;
-                        case "GBP":
-                            tassoCambio=0.0052;
-                            break;
-                        case "USD":
-                            tassoCambio=0.0065;
-                            break;
-                        default:
-                            tassoCambio=0;
-                            break;
-                        }
+            tassoCambio = switch (a) {
+            case "JPY" -> 1;
+            case "EUR" -> 0.0062;
+            case "GBP" -> 0.0052;
+            case "USD" -> 0.0065;
+            default -> 0;
+        };
                     break;
+
         default:
-                    switch (a) {
-                        case "EUR":
-                            tassoCambio=0;
-                            break;
-                        case "GBP":
-                            tassoCambio=0;
-                            break;
-                        case "JPY":
-                            tassoCambio=0;
-                            break;
-                        default:
-                            tassoCambio=0;
-                            break;
-                        }
+            tassoCambio = switch (a) {
+            case "EUR" -> 0;
+            case "GBP" -> 0;
+            case "JPY" -> 0;
+            default -> 0;
+        };
                     break;
+
 
     }
     return tassoCambio; 
