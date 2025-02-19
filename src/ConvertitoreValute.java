@@ -50,58 +50,42 @@ public class ConvertitoreValute {
     da=da.toUpperCase(); // la formato upperCase siccome ho usato upperCase format per il switch 
     a=a.toUpperCase();
     
-    switch (da) {
-        case "EUR":
-            tassoCambio = switch (a) {
-            case "EUR" -> 1;
-            case "USD" -> 1.04;
-            case "GBP" -> 0.83;
-            case "JPY" -> 160.41;
-            default -> 0;
-        };
-                break;
-
-        case "USD":
-            tassoCambio = switch (a) {
-            case "USD" -> 1;
-            case "EUR" -> 0.96;
-            case "GBP" -> 0.80;
-            case "JPY" -> 154.35;
-            default -> 0;
-        };
-                break;
-
-        case "GBP":
-            tassoCambio = switch (a) {
-            case "GBP" -> 1;
-            case "EUR" -> 1.2;
-            case "USD" -> 1.25;
-            case "JPY" -> 192.15;
-            default -> 0;
-        };
-                    break;
-
-        case "JPY":
-            tassoCambio = switch (a) {
-            case "JPY" -> 1;
-            case "EUR" -> 0.0062;
-            case "GBP" -> 0.0052;
-            case "USD" -> 0.0065;
-            default -> 0;
-        };
-                    break;
-
-        default:
-            tassoCambio = switch (a) {
-            case "EUR" -> 0;
-            case "GBP" -> 0;
-            case "JPY" -> 0;
-            default -> 0;
-        };
-                    break;
-
-
-    }
+    tassoCambio = switch (da) {
+          case "EUR" -> switch (a) {
+              case "EUR" -> 1;
+              case "USD" -> 1.04;
+              case "GBP" -> 0.83;
+              case "JPY" -> 160.41;
+              default -> 0;
+          };
+          case "USD" -> switch (a) {
+              case "USD" -> 1;
+              case "EUR" -> 0.96;
+              case "GBP" -> 0.80;
+              case "JPY" -> 154.35;
+              default -> 0;
+          };
+          case "GBP" -> switch (a) {
+              case "GBP" -> 1;
+              case "EUR" -> 1.2;
+              case "USD" -> 1.25;
+              case "JPY" -> 192.15;
+              default -> 0;
+          };
+          case "JPY" -> switch (a) {
+              case "JPY" -> 1;
+              case "EUR" -> 0.0062;
+              case "GBP" -> 0.0052;
+              case "USD" -> 0.0065;
+              default -> 0;
+          };
+          default -> switch (a) {
+              case "EUR" -> 0;
+              case "GBP" -> 0;
+              case "JPY" -> 0;
+              default -> 0;
+          };
+      };
     return tassoCambio; 
   }
 }
